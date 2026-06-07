@@ -1,0 +1,21 @@
+# Python系
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS系（Windowsが勝手に作るゴミファイル）
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_db.ttf
+desktop.ini
+$RECYCLE.BIN/
+
+# IDE/エディタ系
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# その他
+.DS_Store
