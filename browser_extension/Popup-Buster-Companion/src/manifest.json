@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Popup Buster Companion",
+  "description": "A lightweight, experience-based popup blocker that learns source and target domains from you.",
+  "version": "0.1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "popup-buster-companion@g4biz555",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "48": "icons/icon_image48.png",
+    "96": "icons/icon_image96.png"
+  },
+  "background": {
+    "scripts": ["shared.js", "background.js"]
+  },
+  "action": {
+    "default_title": "Popup Buster Companion",
+    "default_icon": {
+      "48": "icons/icon_image48.png",
+      "96": "icons/icon_image96.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

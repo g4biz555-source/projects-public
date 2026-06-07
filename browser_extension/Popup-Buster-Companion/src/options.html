@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popup Buster Companion Settings</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options">
+    <main>
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Popup Buster Companion</p>
+          <h1>リスト管理</h1>
+        </div>
+        <div class="stat">
+          <span id="block-count">0</span>
+          <small>blocked</small>
+        </div>
+      </header>
+
+      <section class="list-grid">
+        <article class="panel">
+          <header>
+            <h2>ポップアップ元リスト</h2>
+            <p>このドメインから開かれた新規タブを閉じます。</p>
+          </header>
+          <form class="add-form" data-list="sourceDomains">
+            <input name="domain" type="text" placeholder="example.com" autocomplete="off">
+            <button type="submit">追加</button>
+          </form>
+          <input class="search" data-search="sourceDomains" type="search" placeholder="検索">
+          <ul id="source-list" class="domain-list"></ul>
+        </article>
+
+        <article class="panel">
+          <header>
+            <h2>ポップアップ先リスト</h2>
+            <p>このドメインが開かれた新規タブを閉じます。</p>
+          </header>
+          <form class="add-form" data-list="targetDomains">
+            <input name="domain" type="text" placeholder="spam.example" autocomplete="off">
+            <button type="submit">追加</button>
+          </form>
+          <input class="search" data-search="targetDomains" type="search" placeholder="検索">
+          <ul id="target-list" class="domain-list"></ul>
+        </article>
+      </section>
+
+      <section class="panel import-export">
+        <header>
+          <h2>インポート / エクスポート</h2>
+          <p>JSON、または改行区切りテキストでリストを移行できます。</p>
+        </header>
+        <div class="button-row">
+          <button id="export-json" type="button">JSONでエクスポート</button>
+          <button id="export-text" type="button">テキストでエクスポート</button>
+        </div>
+        <textarea id="import-data" placeholder='{"sourceDomains":["example.com"],"targetDomains":["spam.example"]}'></textarea>
+        <div class="button-row">
+          <button id="import-merge" type="button">追加インポート</button>
+          <button id="import-replace" type="button" class="secondary">上書きインポート</button>
+        </div>
+        <p id="message" class="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="shared.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

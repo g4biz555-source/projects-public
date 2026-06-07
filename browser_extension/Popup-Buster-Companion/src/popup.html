@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popup Buster Companion</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup">
+    <main>
+      <header class="stack">
+        <p class="eyebrow">Current domain</p>
+        <h1 id="domain">読み込み中...</h1>
+        <p id="status" class="status" aria-live="polite"></p>
+      </header>
+
+      <section class="stack controls" aria-label="登録操作">
+        <button id="toggle-source" type="button">発生元として登録</button>
+        <button id="toggle-target" type="button">ポップアップ先として登録</button>
+        <label class="checkbox-row">
+          <input id="close-after-target" type="checkbox" checked>
+          <span>ポップアップ先登録後にこのタブを閉じる</span>
+        </label>
+      </section>
+
+      <footer>
+        <a href="options.html" target="_blank" rel="noreferrer">リスト管理を開く</a>
+      </footer>
+    </main>
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

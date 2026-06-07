@@ -1,0 +1,284 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-soft: #eef2f6;
+  --text: #18212f;
+  --muted: #607086;
+  --line: #d9e0e8;
+  --accent: #0b7f75;
+  --accent-strong: #075f58;
+  --danger: #b42318;
+  --shadow: 0 12px 30px rgba(24, 33, 47, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 650;
+  padding: 8px 12px;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button.secondary {
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+button.secondary:hover {
+  background: var(--line);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  padding: 9px 10px;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.popup {
+  width: 330px;
+  background: var(--surface);
+}
+
+.popup main {
+  padding: 16px;
+}
+
+.stack > * {
+  margin-block: 0 8px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.controls {
+  margin-top: 14px;
+}
+
+.controls button {
+  width: 100%;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.checkbox-row input {
+  width: auto;
+  margin-top: 3px;
+}
+
+.status {
+  min-height: 20px;
+  color: var(--accent-strong);
+  font-size: 13px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+a {
+  color: var(--accent-strong);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.options main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.stat {
+  min-width: 110px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  text-align: right;
+}
+
+.stat span {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.stat small {
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.panel header p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.add-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.search {
+  margin-bottom: 12px;
+}
+
+.domain-list {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  max-height: 360px;
+  overflow: auto;
+  padding: 0;
+}
+
+.domain-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.domain-list span {
+  overflow-wrap: anywhere;
+}
+
+.domain-list button {
+  min-height: 32px;
+  background: #fff1f0;
+  color: var(--danger);
+}
+
+.domain-list button:hover {
+  background: #ffd8d5;
+}
+
+.domain-list .empty {
+  display: block;
+  color: var(--muted);
+  text-align: center;
+}
+
+.import-export {
+  margin-top: 16px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 760px) {
+  .list-grid,
+  .page-header {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .stat {
+    text-align: left;
+  }
+}
