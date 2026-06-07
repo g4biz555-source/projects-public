@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- 赤い丸（ベース） -->
+  <circle cx="64" cy="64" r="60" fill="#FF3B30" />
+  <!-- 白い再生ボタン（中央よりやや右に寄せて視覚的バランスを調整） -->
+  <polygon points="50,38 50,90 92,64" fill="#FFFFFF" />
+</svg>

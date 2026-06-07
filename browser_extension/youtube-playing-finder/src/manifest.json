@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Playing Finder",
+  "version": "1.0.0",
+  "description": "Jump to currently playing YouTube tabs.",
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://music.youtube.com/*"
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-playing-finder@g4biz555",
+
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_title": "Jump to playing video",
+    "default_icon": "icons/icon.png"
+  },
+
+  "icons": {
+    "256": "icons/icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://music.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
