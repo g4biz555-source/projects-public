@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Playing Finder",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Jump to currently playing YouTube tabs.",
 
   "permissions": [
@@ -25,11 +25,10 @@
     }
   },
 
-  "background": {
+ "background": {
     "scripts": [
       "background.js"
-    ],
-    "service_worker": "background.js"
+    ]
   },
 
   "action": {
