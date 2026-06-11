@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Popup Buster Companion",
   "description": "A lightweight, experience-based popup blocker that learns source and target domains from you.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "browser_specific_settings": {
     "gecko": {
       "id": "popup-buster-companion@g4biz555",
