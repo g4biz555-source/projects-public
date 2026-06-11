@@ -25,7 +25,8 @@ body {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
 }
 
@@ -59,7 +60,8 @@ button.secondary:hover {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -109,6 +111,22 @@ h1 {
 h2 {
   font-size: 17px;
   margin-bottom: 4px;
+}
+
+.domain-select {
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  appearance: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.domain-select:disabled {
+  cursor: not-allowed;
+  background: var(--surface-soft);
+  opacity: 0.7;
 }
 
 .controls {

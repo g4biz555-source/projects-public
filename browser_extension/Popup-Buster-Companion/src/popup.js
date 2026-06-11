@@ -1,4 +1,4 @@
-const domainEl = document.getElementById("domain");
+const domainSelectEl = document.getElementById("domain-select");
 const statusEl = document.getElementById("status");
 const sourceButton = document.getElementById("toggle-source");
 const targetButton = document.getElementById("toggle-target");
@@ -34,19 +34,69 @@ async function refreshLists() {
   updateButtons();
 }
 
+function generateDomainCandidates(fullDomain) {
+  if (!fullDomain) return [];
+  
+  // IPv4アドレス、IPv6、またはドットを含まないドメイン(localhost等)の場合は分割しない
+  if (!fullDomain.includes(".") || /^(?:\d{1,3}\.){3}\d{1,3}$/.test(fullDomain) || fullDomain.includes(":")) {
+    return [fullDomain];
+  }
+
+  const parts = fullDomain.split(".");
+  const candidates = [];
+  
+  while (parts.length >= 2) {
+    const last = parts[parts.length - 1];
+    const secondLast = parts[parts.length - 2];
+    
+    // .co.jp のような ccTLD+SLD を単独で登録させないための簡易ガード
+    if (parts.length === 2 && secondLast.length <= 3 && ["jp", "uk", "au", "nz", "kr", "tw", "cn", "br"].includes(last)) {
+      break;
+    }
+    
+    candidates.push(parts.join("."));
+    parts.shift();
+  }
+  
+  // 万が一候補が空になった場合のフォールバック
+  if (candidates.length === 0) {
+    candidates.push(fullDomain);
+  }
+  
+  return candidates;
+}
+
 async function init() {
   const [tab] = await extensionApi.tabs.query({ active: true, currentWindow: true });
   activeTab = tab;
-  currentDomain = PopupBusterList.domainFromUrl(tab?.url || tab?.pendingUrl);
+  const fullDomain = PopupBusterList.domainFromUrl(tab?.url || tab?.pendingUrl);
 
-  if (!currentDomain) {
-    domainEl.textContent = "このページは登録できません";
+  if (!fullDomain) {
+    domainSelectEl.innerHTML = '<option>このページは登録できません</option>';
+    domainSelectEl.disabled = true;
     sourceButton.disabled = true;
     targetButton.disabled = true;
     return;
   }
 
-  domainEl.textContent = currentDomain;
+  const candidates = generateDomainCandidates(fullDomain);
+  domainSelectEl.innerHTML = "";
+  
+  for (const candidate of candidates) {
+    const option = document.createElement("option");
+    option.value = candidate;
+    option.textContent = candidate;
+    domainSelectEl.appendChild(option);
+  }
+
+  domainSelectEl.disabled = false;
+  currentDomain = domainSelectEl.value;
+
+  domainSelectEl.addEventListener("change", () => {
+    currentDomain = domainSelectEl.value;
+    updateButtons();
+  });
+
   await refreshLists();
 }
 
