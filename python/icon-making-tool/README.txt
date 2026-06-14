@@ -35,5 +35,7 @@ cd your-repo-name
 -  Click the "Convert and Save as PNG" button.
 - Transparent PNG images of all selected sizes will be generated instantly in the same folder as the original image!
 
+![You can convert easily. ](screenshot.png)
+
 ##📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
