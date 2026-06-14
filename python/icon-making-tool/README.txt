@@ -20,12 +20,21 @@ I created this tool to save developers the hassle of repeatedly resizing and dow
 - Python 3.7 or higher
 - PySide6
 
-## 🚀 Installation
+## 🚀 How to Get Started
 
-1. Clone or download the repository.
+Since this project is part of a collection, you can simply download the files directly.
+
+1. Download `icon-making-tool.py` from this directory.
+2. Ensure you have [Python](https://www.python.org/) installed.
+3. Install the required library (`PySide6`) using the terminal or command prompt:
+
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+pip install PySide6
+```
+
+```bash
+python icon-making-tool.py
+```
 
 ## 💡 How to Use
 - Drag and drop the image file (.svg, .png, .jpg) you want to convert into the dashed area of the application window.
@@ -35,7 +44,7 @@ cd your-repo-name
 -  Click the "Convert and Save as PNG" button.
 - Transparent PNG images of all selected sizes will be generated instantly in the same folder as the original image!
 
-![You can convert easily. ](screenshot.png)
+<img src="screenshot.png" alt="You can convert easily." width="600">
 
 ##📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
