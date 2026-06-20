@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Status Sound</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔔 Download Status Sound</h1>
+      <label class="switch-large">
+        <input type="checkbox" id="mainToggle">
+        <span class="slider"></span>
+        <span id="statusText">Enabled</span>
+      </label>
+    </header>
+
+    <section class="download-list" id="activeDownloads">
+      <h2>Active Downloads</h2>
+      <div id="downloadItems">
+        <p class="empty-msg">No active downloads</p>
+      </div>
+    </section>
+
+    <footer>
+      <a href="../options/options.html" target="_blank" class="settings-link">⚙️ Settings</a>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
